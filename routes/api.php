@@ -24,3 +24,4 @@ Route::post('listfood', 'Api\RestaurantController@listfood');
 
 
 Route::get('list_res', 'Api\RestaurantController@list_res');
+Route::get('listfood', 'Api\RestaurantController@listfood');
