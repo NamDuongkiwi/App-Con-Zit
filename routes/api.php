@@ -19,4 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::get('listrestaurant', 'Api\RestaurantController@list');
+Route::get('list_res', 'Api\RestaurantController@list_res');
+Route::get('listfood', 'Api\RestaurantController@listfood');
