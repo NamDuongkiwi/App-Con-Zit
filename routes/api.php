@@ -21,3 +21,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('list_res', 'Api\RestaurantController@list_res');
 Route::post('listfood', 'Api\RestaurantController@listfood');
+
+
+Route::get('list_res', 'Api\RestaurantController@list_res');
