@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 class RestaurantController extends Controller
 {
     //
-    public function list_res(){
-        $id = request('id');
+    public function list_res(Request $request){
+        $id = $request->get('id');
         $data = \DB::table('cuahang_loaidoan')
             ->join('cua_hang', 'cua_hang.id_cuahang', '=', 'cuahang_loaidoan.id_cuahang')
             ->select('cua_hang.*')
@@ -24,7 +24,7 @@ class RestaurantController extends Controller
         return \DB::table('mon_an')
             ->where('id_cuahang', $id)->get();
     }
-    
+
     public function getpage($page){
         $class = \DB::table('class')
             ->join('teacher', 'teacher.teacher_id', '=', 'class.teacher_id')
