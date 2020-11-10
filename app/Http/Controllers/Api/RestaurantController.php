@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use http\Env\Response;
 use Illuminate\Http\Request;
 
 class RestaurantController extends Controller
@@ -26,20 +27,22 @@ class RestaurantController extends Controller
         \DB::table('don_hang')->insert(
             ['id_donhang'=> $orderid, 'id_khachhang'=>$userid, 'id_monan'=>$foodid, 'soluong'=>$num]
         );
-        return "access";
+        return response()->json(['mess'=>'success'], 200);
+    }
+    public function temp(){
+        $value = 1;
+        return json_decode($value, true);
     }
 
 
 
 
-    public function getorderid(Request $request){
+    public function getorderid(){
         $id_donhang = \DB::table('don_hang')->select('id_donhang')
             ->orderBy('id_donhang', 'desc')
             ->limit(1)->get('id_donhang');
         return $id_donhang;
     }
-
-
 
     public function getcategory(Request $request){
         $id = $request->get('id');
