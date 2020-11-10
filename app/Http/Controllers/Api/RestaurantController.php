@@ -19,17 +19,27 @@ class RestaurantController extends Controller
         return \DB::select(\DB::raw("CALL list_food($id)"));
     }
     public function orders(Request $request){
-        $id_donhang = \DB::table('don_hang')->select('id_donhang')
-            ->orderBy('id_donhang', 'desc')
-            ->limit(1)->get('id_donhang');
-        return $id_donhang;
+        $userid = $request->header('id');
+        $foodid = $request->get('food_id');
+        $num = $request->get('num');
+        $orderid = $request->get('order_id');
+        \DB::table('don_hang')->insert(
+            ['id_donhang'=> $orderid, 'id_khachhang'=>$userid, 'id_monan'=>$foodid, 'soluong'=>$num]
+        );
+        return "access";
     }
+
+
+
+
     public function getorderid(Request $request){
         $id_donhang = \DB::table('don_hang')->select('id_donhang')
             ->orderBy('id_donhang', 'desc')
             ->limit(1)->get('id_donhang');
         return $id_donhang;
     }
+
+
 
     public function getcategory(Request $request){
         $id = $request->get('id');
