@@ -29,6 +29,7 @@ class RestaurantController extends Controller
             ->select('loai_do_an.ten_loaidoan')
             ->where('cuahang_loaidoan.id_cuahang', $id)
             ->get();
+
     }
 
 
