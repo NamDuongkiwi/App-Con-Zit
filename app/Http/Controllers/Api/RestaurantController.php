@@ -22,20 +22,13 @@ class RestaurantController extends Controller
         $id_donhang = \DB::table('don_hang')->select('id_donhang')
             ->orderBy('id_donhang', 'desc')
             ->limit(1)->get('id_donhang');
-        $id = $request->header('id');
-        $json = json_decode($request->getContent());
-        /*foreach ($json as $key => $value){
-            foreach ($value as $a => $b){
-                \DB::table('don_hang')->insert([
-                    ['id_donhang' => , 'votes' => 0],
-                ]);
-            }
-        }*/
-        //$x = json_decode($id_donhang, true);
-
-        return $id_donhang['id_donhang'];
-
-
+        return $id_donhang;
+    }
+    public function getorderid(Request $request){
+        $id_donhang = \DB::table('don_hang')->select('id_donhang')
+            ->orderBy('id_donhang', 'desc')
+            ->limit(1)->get('id_donhang');
+        return $id_donhang;
     }
 
     public function getcategory(Request $request){
