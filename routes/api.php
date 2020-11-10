@@ -21,11 +21,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('list_res', 'Api\RestaurantController@list_res');
 Route::post('listfood', 'Api\RestaurantController@listfood');
-
+Route::post('order', 'Api\RestaurantController@orders');
 
 Route::get('list_res', 'Api\RestaurantController@list_res');
 Route::get('listfood', 'Api\RestaurantController@listfood');
-
+Route::get('getcategory', 'Api\RestaurantController@getcategory');
 
 Route::post('login', 'Api\UserController@login');
 Route::post('register', 'Api\UserController@register');

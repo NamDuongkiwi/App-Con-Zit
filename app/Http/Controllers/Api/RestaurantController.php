@@ -18,7 +18,18 @@ class RestaurantController extends Controller
         $id = request('id');
         return \DB::select(\DB::raw("CALL list_food($id)"));
     }
-    //public function
+    public function orders(Request $request){
+        return json_decode($request, true);
+    }
+
+    public function getcategory(Request $request){
+        $id = $request->get('id');
+        return \DB::table('cuahang_loaidoan')
+            ->join('loai_do_an', 'loai_do_an.id_loaidoan', '=', 'cuahang_loaidoan.id_loaidoan')
+            ->select('loai_do_an.ten_loaidoan')
+            ->where('cuahang_loaidoan.id_cuahang', $id)
+            ->get();
+    }
 
 
 }
