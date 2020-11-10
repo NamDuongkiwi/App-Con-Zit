@@ -19,7 +19,8 @@ class RestaurantController extends Controller
         return \DB::select(\DB::raw("CALL list_food($id)"));
     }
     public function orders(Request $request){
-        return json_decode($request, true);
+        $json = json_decode($request->getContent(), true);
+
     }
 
     public function getcategory(Request $request){
@@ -29,7 +30,6 @@ class RestaurantController extends Controller
             ->select('loai_do_an.ten_loaidoan')
             ->where('cuahang_loaidoan.id_cuahang', $id)
             ->get();
-
     }
 
 
