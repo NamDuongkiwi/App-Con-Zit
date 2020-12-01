@@ -54,6 +54,6 @@ class RestaurantController extends Controller
     }
     public function findname(Request $request){
         $name = $request->get('name');
-        return \DB::select(\DB::raw("CALL list_res_by_name($name)"));
+        return \DB::select(\DB::raw("CALL list_res_by_name('$name')"));
     }
 }
