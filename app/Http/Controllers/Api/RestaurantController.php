@@ -52,8 +52,14 @@ class RestaurantController extends Controller
             ->where('cuahang_loaidoan.id_cuahang', $id)
             ->get();
     }
-    public function findname(Request $request){
+    public function findname(Request $request)
+    {
         $name = $request->get('name');
         return \DB::select(\DB::raw("CALL list_res_by_name('$name')"));
+    }
+    public function list_order(Request $request){
+        $id = $request->get('id');
+        $detail = \DB::select(\DB::raw("CALL order_detail($id)"));
+        return $detail;
     }
 }
