@@ -62,4 +62,19 @@ class RestaurantController extends Controller
         $detail = \DB::select(\DB::raw("CALL order_detail($id)"));
         return $detail;
     }
+
+    public function getVoucher(){
+        return \DB::select(\DB::raw("CALL list_voucher"));
+    }
+    public function getResByVoucher(Request $request){
+        $id = $request->get('id');
+        return \DB::select(\DB::raw("CALL Restaurant_by_voucher('$id')"));
+    }
+    public function getVoucherByRes(Request $request){
+        $id = $request->get('id');
+        return \DB::select(\DB::raw("CALL list_voucher_by_rest('$id')"));
+    }
+
+
+
 }

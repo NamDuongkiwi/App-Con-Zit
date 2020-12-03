@@ -30,6 +30,9 @@ Route::get('listfood', 'Api\RestaurantController@listfood');
 Route::get('getcategory', 'Api\RestaurantController@getcategory');
 Route::get('orderid', 'Api\RestaurantController@getorderid');
 Route::get('temp', 'Api\RestaurantController@temp');
+Route::get('list_voucher', 'Api\RestaurantController@getVoucher');
+Route::get('list_res_voucher', 'Api\RestaurantController@getResByVoucher');
+Route::get('list_voucher_rest', 'Api\RestaurantController@getVoucherByRes');
 
 
 Route::post('login', 'Api\UserController@login');
