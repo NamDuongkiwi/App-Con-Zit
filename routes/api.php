@@ -33,7 +33,7 @@ Route::get('temp', 'Api\RestaurantController@temp');
 Route::get('list_voucher', 'Api\RestaurantController@getVoucher');
 Route::get('list_res_voucher', 'Api\RestaurantController@getResByVoucher');
 Route::get('list_voucher_rest', 'Api\RestaurantController@getVoucherByRes');
-
+Route::get('list_order', 'Api\RestaurantController@list_order');
 
 Route::post('login', 'Api\UserController@login');
 Route::post('register', 'Api\UserController@register');
